@@ -42,15 +42,18 @@ public class SpellChecker {
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String similar = "";
     int minDistance = Integer.MAX_VALUE;
-
+	boolean check =false;
     for (int i = 0; i < dictionary.length; i++) {
         int distance = levenshtein(word, dictionary[i]);
         if (distance < threshold && distance < minDistance) {
             minDistance = distance;
             similar = dictionary[i];
+			check =true;
         }
     }
 
-    return similar;
-
+    if(check)
+	return similar;
+	else
+	return word;
 }}
