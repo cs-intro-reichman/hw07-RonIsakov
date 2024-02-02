@@ -3,10 +3,10 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		String word = args[0];
-		int threshold = Integer.parseInt(args[1]);
+		//String word = args[0];
+		//int threshold = Integer.parseInt(args[1]);
 		String[] dictionary = readDictionary("dictionary.txt");
-		String correction = spellChecker(word, threshold, dictionary);
+		String correction = spellChecker("h0llo", 1, dictionary);
 		System.out.println(correction);
 	}
 
@@ -40,20 +40,21 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		String similar = "";
+	String similar = "";
     int minDistance = Integer.MAX_VALUE;
-	boolean check =false;
-    for (int i = 0; i < dictionary.length; i++) {
+	int i =0;
+    for ( i = 0; i < dictionary.length; i++) {
         int distance = levenshtein(word, dictionary[i]);
-        if (distance < threshold && distance < minDistance) {
+        if (distance < minDistance) {
             minDistance = distance;
             similar = dictionary[i];
-			check =true;
         }
     }
 
-    if(check)
+    if(minDistance <= threshold)
 	return similar;
 	else
 	return word;
-}}
+
+}
+}
