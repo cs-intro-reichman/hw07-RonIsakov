@@ -25,6 +25,11 @@ public class HashTagTokenizer {
 
 	public static boolean existInDictionary(String word, String []dictionary) {
 	boolean check =false;
+	/* using 3000 is very bad!
+	you should have used dictionary.length,
+	because now your function is limited only to dictionaries of size 3000.
+	*/
+	
 	for(int i=0;i<3000;i++){
 		if(word.equals(dictionary[i])){
 			check = true;
