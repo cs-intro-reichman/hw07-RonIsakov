@@ -18,6 +18,8 @@ public class SpellChecker {
 		word1 = word1.toLowerCase();
 		word2 = word2.toLowerCase();
 		int ans = -1;
+		/* you could just return the value of ans each time instead of saving it into ans
+		and by doing this you wold also avoid al the else's */
 		if(word2.length()==0)
 			ans = word1.length();
 		else if(word1.length()==0)
